@@ -1,0 +1,57 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<title>Font Tester</title>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<style type="text/css">
+		.SansSerif{
+			font-family: arial, helvetica, sans-serif;
+		}
+		.Serif{
+			font-family: Georgia, serif;
+		}
+		#container{
+			font-size: attr(data-scale);
+		}
+	</style>
+	
+</head>
+
+<body>
+
+	<aside>
+		<form>
+			<label>Font Family</label>
+			<select id="font-family">
+				<option>SansSerif</option>
+				<option>Serif</option>
+			</select>
+
+			<label>Base scale</label>
+			<input id="" type="text"/>
+		</form>
+	</aside>
+
+	<div id="container" data-scale="8px">
+		<h1>Título</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+
+	<script type="text/javascript">
+		
+		var selectedScheme = 'SansSerif';
+		$('#font-family').change(function(){
+	    	$('#container').removeClass(selectedScheme).addClass($(this).val());
+	    	selectedScheme = $(this).val();
+		});
+
+	</script>
+
+</body>
