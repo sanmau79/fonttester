@@ -12,9 +12,7 @@
 		.Serif{
 			font-family: Georgia, serif;
 		}
-		#container{
-			font-size: attr(data-scale);
-		}
+		
 	</style>
 	
 </head>
@@ -22,7 +20,7 @@
 <body>
 
 	<aside>
-		<form>
+		<form method="get">
 			<label>Font Family</label>
 			<select id="font-family">
 				<option>SansSerif</option>
@@ -30,11 +28,11 @@
 			</select>
 
 			<label>Base scale</label>
-			<input id="" type="text"/>
+			<input id="font-size" type="text" value="1em" />
 		</form>
 	</aside>
 
-	<div id="container" data-scale="8px">
+	<div id="container" class="SansSerif">
 		<h1>Título</h1>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -46,11 +44,20 @@
 
 	<script type="text/javascript">
 		
+		<!-- http://api.jquery.com/val/ -->
+		
 		var selectedScheme = 'SansSerif';
 		$('#font-family').change(function(){
 	    	$('#container').removeClass(selectedScheme).addClass($(this).val());
 	    	selectedScheme = $(this).val();
 		});
+
+		$( '#font-size' )
+  		.keyup(function() {
+    		var value = $( this ).val();
+    		$( '#container' ).css( 'font-size', value );
+		  })
+		.keyup();
 
 	</script>
 
